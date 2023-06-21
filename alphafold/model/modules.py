@@ -169,7 +169,8 @@ class AlphaFoldIteration(hk.Module):
     # MSA representations are not ensembled so
     # we don't pass tensor into the loop.
     msa_representation = representations['msa']
-    print(msa_representation)
+    with jax.disable_jit():
+      print('msa_representation', msa_representation.shape)
     del representations['msa']
 
     # Average the representations (except MSA) over the batch dimension.
