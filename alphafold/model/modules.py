@@ -201,10 +201,10 @@ class AlphaFoldIteration(hk.Module):
         if k != 'msa':
           representations[k] /= num_ensemble.astype(representations[k].dtype)
     
-    with jax.disable_jit():
-      print('msa_representation: ', representations['msa'].shape)
     
     representations['msa'] = msa_representation
+    with jax.disable_jit():
+      print('msa_representation: ', representations['msa'].shape)
     batch = batch0  # We are not ensembled from here on.
 
     heads = {}
@@ -2013,6 +2013,7 @@ class EmbeddingsAndEvoformer(hk.Module):
         'msa': msa_activations[:num_sequences, :, :],
         'msa_first_row': msa_activations[0],
     }
+    print('msa_first_row: ', output['msa_first_row'].shape)
 
     return output
 
