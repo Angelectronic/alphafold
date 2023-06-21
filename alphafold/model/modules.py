@@ -169,8 +169,7 @@ class AlphaFoldIteration(hk.Module):
     # MSA representations are not ensembled so
     # we don't pass tensor into the loop.
     msa_representation = representations['msa']
-    with jax.disable_jit():
-      print('msa_representation', msa_representation.shape)
+    
     del representations['msa']
 
     # Average the representations (except MSA) over the batch dimension.
@@ -201,7 +200,10 @@ class AlphaFoldIteration(hk.Module):
       for k in representations:
         if k != 'msa':
           representations[k] /= num_ensemble.astype(representations[k].dtype)
-
+    
+    with jax.disable_jit():
+      print('msa_representation: ', representations['msa'].shape)
+    
     representations['msa'] = msa_representation
     batch = batch0  # We are not ensembled from here on.
 
@@ -1803,7 +1805,7 @@ class EmbeddingsAndEvoformer(hk.Module):
     preprocess_1d = common_modules.Linear(
         c.msa_channel, name='preprocess_1d')(
             batch['target_feat'])
-
+    print('preprocess_1d: ', preprocess_1d.shape)
     preprocess_msa = common_modules.Linear(
         c.msa_channel, name='preprocess_msa')(
             batch['msa_feat'])
