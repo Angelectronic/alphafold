@@ -416,6 +416,7 @@ def generate_affines(representations, batch, config, global_config,
       create_offset=True,
       name='single_layer_norm')(
           representations['single'])
+  print('act', act.shape)
 
   initial_act = act
   act = common_modules.Linear(
