@@ -421,7 +421,7 @@ def generate_affines(representations, batch, config, global_config,
   act = common_modules.Linear(
       c.num_channel, name='initial_projection')(
           act)
-  print('act', act.shape)
+  print('input: ', c.num_channel)
   affine = generate_new_affine(sequence_mask)
 
   fold_iteration = FoldIteration(
