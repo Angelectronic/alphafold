@@ -31,7 +31,7 @@
             <mxPoint x="510" y="280" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="-w3nPNhzxHXCMxLlRhls-10" value="Sentiment analysis" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="-w3nPNhzxHXCMxLlRhls-10" value="Manual Sentiment Labeling" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="540" y="331" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="-w3nPNhzxHXCMxLlRhls-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="-w3nPNhzxHXCMxLlRhls-8" target="-w3nPNhzxHXCMxLlRhls-10" edge="1">
